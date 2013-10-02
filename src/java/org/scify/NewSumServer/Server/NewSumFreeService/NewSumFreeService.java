@@ -82,7 +82,7 @@ public class NewSumFreeService {
         Logger.getAnonymousLogger().log(Level.INFO,
         "Sending {0} messages", sPath.endsWith("EN.txt")?"ENg":"GRe");
         ids = new InsectFileIO((String) Switches.get("BaseDir"));
-        r = new RSSSources(ids, (String) Switches.get("PathToSources"));
+        r = new RSSSources((String) Switches.get("PathToSources"));
         ac = new ArticleClusterer((ArrayList<Article>)ids.loadObject("AllArticles", "feeds"),
             ids, (String) Switches.get("ArticlePath"));
         idb = new INSECTFileDBWithDir((String) Switches.get("SummaryPath"), "");

@@ -30,7 +30,7 @@
 package org.scify.NewSumServer.Server.NewSumFreeService;
 
 import gr.demokritos.iit.jinsect.storage.INSECTDB;
-import gr.demokritos.iit.jinsect.storage.INSECTFileDBWithDir;
+import gr.demokritos.iit.jinsect.storage.INSECTFileDB;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -85,7 +85,7 @@ public class NewSumFreeService {
         r = new RSSSources((String) Switches.get("PathToSources"));
         ac = new ArticleClusterer((ArrayList<Article>)ids.loadObject("AllArticles", "feeds"),
             ids, (String) Switches.get("ArticlePath"));
-        idb = new INSECTFileDBWithDir((String) Switches.get("SummaryPath"), "");
+        idb = new INSECTFileDB((String) Switches.get("SummaryPath"), "");
         sum = new Summariser(new HashSet<Topic>(
                     ids.readClusteredTopics().values()), idb);
         ind = new Indexer((String) Switches.get("ArticlePath"),
